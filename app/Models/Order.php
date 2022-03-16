@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    public function flight()
+    {
+        return $this->belongsTo(Flight::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Order_details()
+    {
+        return $this->hasMany(Order_detail::class);
+    }
 }
