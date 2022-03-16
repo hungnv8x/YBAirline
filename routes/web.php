@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('backend.dashboard');
+})->name('dashboard');
+
+Route::prefix('user')->group(function (){
+    Route::get('/',[]);
 });
