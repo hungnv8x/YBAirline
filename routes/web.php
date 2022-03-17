@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('backend.dashboard');
-})->name('dashboard');
+})->name('dashboard')->middleware('checkAuth');
 
-Route::prefix('user')->group(function (){
-    Route::get('/',[]);
+Route::get('/login',[AuthController::class,'showLogin'])->name('showLogin');
+Route::post('/login',[AuthController::class,'login'])->name('login');
+Route::get('/register',[AuthController::class,'showRegister'])->name('showRegister');
+Route::post('/register',[AuthController::class,'register'])->name('register');
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+Route::middleware('checkAuth')->group(function (){
+    Route::prefix('users')->group(function (){
+        Route::get('/',[UserController::class,'getAll'])->name('users.list');
+    });
 });
+

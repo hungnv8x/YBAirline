@@ -16,7 +16,7 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function getAll()
     {
-        return $this->model::all();
+        return $this->model::paginate(5);
     }
 
     public function getById($id)

@@ -18,4 +18,5 @@ class UserController extends Controller
         $users = $this->userService->getAll();
         return view('backend.user.list',compact('users'));
     }
+
 }
