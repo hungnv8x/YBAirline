@@ -36,9 +36,13 @@ Route::middleware('checkAuth')->group(function (){
 });
 Route::middleware('checkAuth')->group(function (){
     Route::prefix('flights')->group(function (){
+
         Route::get('/',[FlightController::class,'getAll'])->name('flights.list');
         Route::get('/create',[FlightController::class,'showCreate'])->name('flights.showCreate');
         Route::post('/create',[FlightController::class,'create'])->name('flights.create');
         Route::get('/{id}/delete',[FlightController::class,'deleteById'])->name('flights.delete');
+        Route::get('/{id}/edit',[FlightController::class,'edit'])->name('flights.edit');
+        Route::post('/{id}/edit',[FlightController::class,'update'])->name('flights.update');
+
     });
 });

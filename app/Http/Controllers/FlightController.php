@@ -37,4 +37,15 @@ class FlightController extends Controller
         return redirect()->route('flights.list');
     }
 
+    public function edit($id)
+    {
+        $flight = $this->flightService->getById($id);
+        return view('backend.flight.update', compact('flight'));
+    }
+    public function update(Request $request)
+    {
+        $this->flightService->update($request);
+        return redirect()->route('flights.list');
+    }
+
 }

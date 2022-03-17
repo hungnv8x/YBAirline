@@ -23,6 +23,16 @@ class FlightService
         $this->flightRepository->create($request);
     }
 
+    public function update($request)
+    {
+        $this->flightRepository->update($request);
+    }
+
+    public function getById($id)
+    {
+      return  $this->flightRepository->getById($id);
+    }
+
     public function deleteById($id)
     {
         $this->flightRepository->deleteById($id);

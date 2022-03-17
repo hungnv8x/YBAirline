@@ -33,8 +33,8 @@
                                     <td>{{$flight->travel_time}}</td>
                                     <td>{{$flight->quantity_seat_type_1}}</td>
                                     <td>{{$flight->quantity_seat_type_2}}</td>
-                                    <td width="180">
-                                        <a type="button" class="btn btn-success" href="">Edit</a>
+                                    <td width="160">
+                                        <a type="button" class="btn btn-success" href="{{route('flights.edit',$flight->id)}}">Edit</a>
                                         <a onclick="return confirm('Are you sure?')" type="button" class="btn btn-danger" href="{{route('flights.delete',$flight->id)}}">Delete</a>
                                     </td>
                                 </tr>
