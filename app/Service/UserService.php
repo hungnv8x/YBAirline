@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Auth;
-use phpDocumentor\Reflection\Types\True_;
 
 class UserService
 {
@@ -35,15 +34,19 @@ class UserService
         $this->userRepository->create($request);
     }
 
+    public function update($request)
+    {
+        $this->userRepository->update($request);
+    }
+
     public function login($request)
     {
         $data = $request->only('email','password');
         if (Auth::attempt($data)){
-            $user = $this->userRepository->getByEmail($data['email']);
-            session()->put('user',$user);
-            return True;
+            return true;
         }else{
             return false;
         }
     }
+
 }

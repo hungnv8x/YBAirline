@@ -27,6 +27,9 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::middleware('checkAuth')->group(function (){
     Route::prefix('users')->group(function (){
         Route::get('/',[UserController::class,'getAll'])->name('users.list');
+        Route::get('/{id}/delete',[UserController::class,'deleteById'])->name('users.delete');
+        Route::get('/{id}/edit',[UserController::class,'edit'])->name('users.edit');
+        Route::post('/{id}/edit',[UserController::class,'update'])->name('users.update');
     });
 });
 
