@@ -4,6 +4,7 @@
     <div class="col-md-6">
         <div class="tile">
             <div class="tile-body">
+                <h3 style="text-align: center">Update user</h3>
                 <form method="post">
                     @csrf
                     <div class="form-group">
@@ -13,6 +14,10 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
                         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$user->email}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPhone">Phone</label>
+                        <input name="phone" type="text" class="form-control" id="exampleInputPhone" aria-describedby="emailHelp" value="{{$user->phone}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Role</label>

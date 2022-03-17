@@ -24,6 +24,7 @@ class UserRepository extends BaseRepository
         $user = $this->getById($request->id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->role_id = $request->role;
         $user->save();
     }

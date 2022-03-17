@@ -9,7 +9,7 @@
             <div class="tile">
                 <div class="tile-body">
                     <h3 style="text-align: center">User list</h3>
-                    <a class="btn btn-success mb-3" href="">Create user</a>
+                    <a class="btn btn-success mb-3" href="{{route('users.showCreate')}}">Create User</a>
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>

@@ -123,7 +123,7 @@
                     class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Manage</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Flight</a></li>
+                <li><a class="treeview-item" href="{{route('flights.list')}}"><i class="icon fa fa-circle-o"></i> Flight</a></li>
                 <li><a class="treeview-item" href="{{route('users.list')}}"><i class="icon fa fa-circle-o"></i> User</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Role</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Seat</a></li>

@@ -41,4 +41,16 @@ class UserController extends Controller
         $this->userService->update($request);
         return redirect()->route('users.list');
     }
+
+    public function showCreate()
+    {
+        $roles = $this->roleService->getAll();
+        return view('backend.user.create',compact('roles'));
+    }
+
+    public function create(Request $request)
+    {
+        $this->userService->create($request);
+        return redirect()->route('users.list');
+    }
 }
