@@ -21,7 +21,7 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function getById($id)
     {
-        return $this->model::finOrFail($id);
+        return $this->model::findOrFail($id);
     }
 
     public function deleteById($id)
