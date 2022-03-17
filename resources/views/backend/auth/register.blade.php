@@ -49,6 +49,9 @@
                         <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN UP
                         </button>
                     </div>
+                    <div class="form-group mt-3">
+                        <p class="semibold-text mb-0"><a href="{{route('login')}}" ><i class="fa fa-angle-left fa-fw"></i> Back to Login</a></p>
+                    </div>
                 </form>
             </div>
         </div>
