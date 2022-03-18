@@ -21,6 +21,9 @@ Route::prefix('/admin')->group(function (){
 
 
 });
+Route::get('auto', function (){
+    return view('autoBanner');
+});
 Route::prefix('roles')->group(function (){
     Route::get('/',[RoleController::class, 'getAll'])->name('role.index');
     Route::get('/{id}/delete',[RoleController::class, 'deleteById'])->name('role.delete');
