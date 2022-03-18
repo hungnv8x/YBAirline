@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\SeatController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
