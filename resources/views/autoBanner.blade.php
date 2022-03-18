@@ -79,22 +79,42 @@
 <div class="slideshow-container">
 
     <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="{{asset('images/banner.jpg')}}" style="width:100%">
-        <div class="text">Caption Text</div>
+        <div class="numbertext">Đảo trên trời</div>
+        <img src="{{asset('images/yb3.jpeg')}}" style="width:100%">
+        <div class="text">Caption one</div>
     </div>
 
     <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
+        <div class="numbertext">Cực quang</div>
+        <img src="{{asset('images/yb4.jpeg')}}" style="width:100%">
+        <div class="text">Caption Three</div>
+    </div>
+
+
+    <div class="mySlides fade">
+        <div class="numbertext">Trở về thời kỳ đồ đá</div>
         <img  src="{{asset('images/yb7.jpeg')}}" style="width:100%">
         <div class="text">Caption Two</div>
     </div>
 
     <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="img_mountains_wide.jpg" style="width:100%">
-        <div class="text">Caption Three</div>
+        <div class="numbertext">Dạo quanh sa mạc</div>
+        <img src="{{asset('images/yb.jpeg')}}" style="width:100%">
+        <div class="text">Caption four</div>
     </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">Ngắm hoa tam giác mạch Hà Giang</div>
+        <img src="{{asset('images/yb1.jpeg')}}" style="width:100%">
+        <div class="text">Caption five</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">Khám phá đảo dưới nước</div>
+        <img src="{{asset('images/yb2.jpeg')}}" style="width:100%">
+        <div class="text">Caption six</div>
+    </div>
+
 
 </div>
 <br>
@@ -104,6 +124,7 @@
     <span class="dot"></span>
     <span class="dot"></span>
 </div>
+
 
 <script>
     var slideIndex = 0;

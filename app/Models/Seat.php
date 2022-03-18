@@ -13,4 +13,9 @@ class Seat extends Model
     {
         return $this->belongsTo(Order_detail::class);
     }
+    protected $fillable = [
+        'name',
+        'price',
+
+    ];
 }
