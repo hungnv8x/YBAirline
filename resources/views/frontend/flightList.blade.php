@@ -9,24 +9,24 @@
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Name</th>
                                 <th>Form</th>
                                 <th>To</th>
                                 <th>Departure date</th>
                                 <th>Travel time</th>
+                                <th>Price</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($flights as $key => $flight)
+                            @foreach($flights as $flight)
                                 <tr>
-                                    <td>{{$key + 1}}</td>
                                     <td>{{$flight->name}}</td>
                                     <td>{{$flight->from}}</td>
                                     <td>{{$flight->to}}</td>
                                     <td>{{$flight->departure_date}}</td>
                                     <td>{{$flight->travel_time}}</td>
+                                    <td style="color: red">{{$flight->seat->price }}</td>
                                     <td >
                                         <a  href="">Detail</a>
                                     </td>

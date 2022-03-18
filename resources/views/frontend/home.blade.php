@@ -32,10 +32,10 @@
     <ul class="app-nav">
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                    class="fa fa-user fa-lg"></i></a>
+                    class="fa fa-user fa-lg"></i> {{\Illuminate\Support\Facades\Auth::user()->name ?? "username"}}</a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                <li><a class="dropdown-item" href=""><i class="fa fa-sign-in fa-lg"></i> Login</a></li>
-                <li><a class="dropdown-item" href=""><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                <li><a @if(\Illuminate\Support\Facades\Auth::user()) {{'hidden'}} @endif class="dropdown-item" href="{{route('login')}}"><i class="fa fa-sign-in fa-lg"></i> Login</a></li>
+                <li><a @if(!\Illuminate\Support\Facades\Auth::user()) {{'hidden'}} @endif class="dropdown-item" href="{{route('logout')}}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
             </ul>
         </li>
     </ul>
@@ -44,13 +44,13 @@
     <div class="navbar mb-5">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link active" href="{{route('home')}}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a   class="nav-link" href="#">Link</a>
             </li>
         </ul>
     </div>

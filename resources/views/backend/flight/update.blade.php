@@ -9,27 +9,42 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName">Name</label>
-                        <input name="name" type="text" class="form-control" id="exampleInputName" value="{{$flight->name}}">
+                        <input name="name" type="text" class="form-control" id="exampleInputName"
+                               value="{{$flight->name}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">From</label>
-                        <input name="from" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$flight->from}}">
+                        <input name="from" type="text" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp" value="{{$flight->from}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputTo">To</label>
-                        <input name="to" type="text" class="form-control" id="exampleInputTo" aria-describedby="emailHelp" value="{{$flight->to}}">
+                        <input name="to" type="text" class="form-control" id="exampleInputTo"
+                               aria-describedby="emailHelp" value="{{$flight->to}}">
                     </div>
                     <div class="form-group">
                         <label for="pass">Departure Date</label>
-                        <input name="departure_date" type="datetime-local" class="form-control" id="pass" aria-describedby="emailHelp" value="{{$flight->departure_date}}">
+                        <input name="departure_date" type="datetime-local" class="form-control" id="pass"
+                               aria-describedby="emailHelp" value="{{$flight->departure_date}}">
                     </div>
                     <div class="form-group">
-                        <label >Travel Time</label>
-                        <input name="travel_time" type="time" class="form-control" aria-describedby="emailHelp" value="{{$flight->travel_time}}">
+                        <label>Travel Time</label>
+                        <input name="travel_time" type="time" class="form-control" aria-describedby="emailHelp"
+                               value="{{$flight->travel_time}}">
                     </div>
                     <div class="form-group">
-                        <label >Quantity Seat type 1</label>
-                        <input name="quantity_seat" type="number" class="form-control" aria-describedby="emailHelp" value="{{$flight->quantity_seat}}">
+                        <label>Quantity Seat</label>
+                        <input name="quantity_seat" type="number" class="form-control" aria-describedby="emailHelp"
+                               value="{{$flight->quantity_seat}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Seat</label>
+                        <select name="seat_id" class="form-control" id="exampleFormControlSelect1">
+                            @foreach($seats as $seat)
+                                <option
+                                    {{$flight->seat->id == $seat->id ? "selected" : ""}} value="{{$seat->id}}">{{$seat->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="row">
                         <div class="col-6">
@@ -37,7 +52,8 @@
                         </div>
 
                         <div class=" col-6 form-group mt-3">
-                            <p style="text-align: right" class="semibold-text mb-0"><a href="{{route('flights.list')}}" ><i class="fa fa-angle-left fa-fw"></i> Back</a></p>
+                            <p style="text-align: right" class="semibold-text mb-0"><a href="{{route('flights.list')}}"><i
+                                        class="fa fa-angle-left fa-fw"></i> Back</a></p>
                         </div>
                     </div>
 

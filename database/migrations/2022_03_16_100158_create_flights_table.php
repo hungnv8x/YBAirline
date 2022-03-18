@@ -20,7 +20,9 @@ class CreateFlightsTable extends Migration
             $table->string('to');
             $table->dateTime('departure_date');
             $table->time('travel_time');
+            $table->unsignedBigInteger('seat_id');
             $table->integer('quantity_seat');
+            $table->foreign('seat_id')->references('id')->on('seats')->cascadeOnDelete();
             $table->timestamps();
         });
     }

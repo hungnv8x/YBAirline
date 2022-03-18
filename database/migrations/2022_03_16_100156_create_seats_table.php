@@ -17,8 +17,6 @@ class CreateSeatsTable extends Migration
             $table->id();
             $table->string('name');
             $table->double('price');
-            $table->unsignedBigInteger('flight_id');
-            $table->foreign('flight_id')->references('id')->on('flights');
             $table->timestamps();
         });
     }

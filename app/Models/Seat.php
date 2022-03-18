@@ -11,11 +11,10 @@ class Seat extends Model
 
     public function flight()
     {
-        return $this->belongsTo(Flight::class);
+        return $this->hasOne(Flight::class);
     }
     protected $fillable = [
         'name',
         'price',
-
     ];
 }
