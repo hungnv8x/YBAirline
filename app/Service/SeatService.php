@@ -31,4 +31,9 @@ class SeatService
         $this->seatRepository->update($request, $id);
     }
 
+    public function delete($id)
+    {
+        $this->seatRepository->deleteById($id);
+    }
+
 }

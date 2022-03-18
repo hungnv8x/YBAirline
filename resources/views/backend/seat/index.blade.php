@@ -21,6 +21,7 @@
                             <td>{{$seat->name}}</td>
                             <td>{{$seat->price}}</td>
                             <td><a href="{{route('seat.edit', $seat->id)}}">Update</a></td>
+                            <td><a onclick="return confirm('Are you sure?')" href="{{route('seat.delete', $seat->id)}}">Delete</a></td>
                         </tr>
                     @endforeach
                     </tbody>

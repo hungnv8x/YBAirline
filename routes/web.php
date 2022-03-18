@@ -38,6 +38,7 @@ Route::prefix('seats')->group(function (){
     Route::post('create', [SeatController::class, 'create'])->name('seat.create');
     Route::get('{id}/edit', [SeatController::class, 'edit'])->name('seat.edit');
     Route::post('{id}/update', [SeatController::class, 'update'])->name('seat.update');
+    Route::get('{id}/delete', [SeatController::class, 'delete'])->name('seat.delete');
 
 });
 

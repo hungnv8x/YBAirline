@@ -42,4 +42,10 @@ class SeatController extends Controller
         $this->seatService->update($request, $id);
         return redirect()->route('seat.index');
     }
+
+    public function delete($id)
+    {
+        $this->seatService->delete($id);
+        return redirect()->route('seat.index');
+    }
 }
