@@ -125,7 +125,7 @@
             <ul class="treeview-menu">
                 <li><a class="treeview-item" href="{{route('flights.list')}}"><i class="icon fa fa-circle-o"></i> Flight</a></li>
                 <li><a class="treeview-item" href="{{route('users.list')}}"><i class="icon fa fa-circle-o"></i> User</a></li>
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Role</a></li>
+                <li><a class="treeview-item" href="{{route('role.index')}}"><i class="icon fa fa-circle-o"></i> Role</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Seat</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Oder</a></li>
             </ul>
