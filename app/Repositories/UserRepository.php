@@ -16,12 +16,16 @@ class UserRepository extends BaseRepository
     public function create($request)
     {
         $user = $request->only('name','email','phone','password');
-        $user['password'] = Hash::make('password');
+        $user['password'] = Hash::make($user['password']);
         $this->model::create($user);
     }
-
-    public function getByEmail($email)
+    public function update($request)
     {
-        return $this->model::where('email',$email)->first();
+        $user = $this->getById($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->role_id = $request->role;
+        $user->save();
     }
 }

@@ -14,8 +14,7 @@ class RoleService
 
     public function getAll()
     {
-        $roles = $this->roleRepository->getAll();
-        return $roles;
+         return $this->roleRepository->getAll();
     }
     public function deleteById($id)
     {
