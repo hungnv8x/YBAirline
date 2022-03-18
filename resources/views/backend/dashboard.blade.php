@@ -101,7 +101,7 @@
         </li>
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                    class="fa fa-user fa-lg"></i> {{session()->get('user')->name ??'username'}}</a>
+                    class="fa fa-user fa-lg"></i> {{\Illuminate\Support\Facades\Auth::user()->name}}</a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
                 <li><a class="dropdown-item" href=""><i class="fa fa-cog fa-lg"></i> Settings</a></li>
                 <li><a class="dropdown-item" href=""><i class="fa fa-user fa-lg"></i> Profile</a></li>
@@ -123,8 +123,8 @@
                     class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Manage</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Flight</a></li>
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> User</a></li>
+                <li><a class="treeview-item" href="{{route('flights.list')}}"><i class="icon fa fa-circle-o"></i> Flight</a></li>
+                <li><a class="treeview-item" href="{{route('users.list')}}"><i class="icon fa fa-circle-o"></i> User</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Role</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Seat</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Oder</a></li>
