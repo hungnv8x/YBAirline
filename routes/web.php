@@ -75,6 +75,5 @@ Route::middleware('checkAuth')->group(function () {
     });
 });
 Route::prefix('/home')->group(function () {
-    Route::get('/', [FlightController::class, 'showHome'])->name('frontend.home');
-    Route::get('/flight-list',[HomeController::class,'getAll']);
+    Route::get('/',[HomeController::class,'getAll'])->name('home');
 });

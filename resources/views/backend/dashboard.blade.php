@@ -27,7 +27,7 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a  class="app-header__logo" href="{{route('dashboard')}}"><img width="150" height="100"  src="{{asset('images/logo.png')}}" alt=""></a>
+<header class="app-header"><a  class="app-header__logo" href="{{route('dashboard')}}">YB Airline</a>
     <!-- Sidebar toggle button-->
     <!-- Navbar Right Menu-->
     <ul class="app-nav">

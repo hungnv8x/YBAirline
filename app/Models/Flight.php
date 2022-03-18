@@ -15,14 +15,15 @@ class Flight extends Model
         'from',
         'to',
         'quantity_seat',
+        'seat_id',
     ];
     public function orders()
     {
         return $this->hasMany(Order::class);
     }
 
-    public function seats()
+    public function seat()
     {
-        return $this->hasMany(Seat::class);
+        return $this->belongsTo(Seat::class);
     }
 }

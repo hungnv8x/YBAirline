@@ -12,7 +12,6 @@ class Order extends Model
     protected $fillable = [
         'flight_id',
         'user_id',
-        'seat_id',
         'quantity',
         'price',
     ];
