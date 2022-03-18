@@ -27,15 +27,10 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a  class="app-header__logo" href="{{route('dashboard')}}"><img width="210" height="150"  src="{{asset('images/logo.png')}}" alt=""></a>
-    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-                                    aria-label="Hide Sidebar"></a>
+<header class="app-header"><a  class="app-header__logo" href="{{route('dashboard')}}"><img width="150" height="100"  src="{{asset('images/logo.png')}}" alt=""></a>
+    <!-- Sidebar toggle button-->
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
-        <li class="app-search">
-            <input class="app-search__input" type="search" placeholder="Search">
-            <button class="app-search__button"><i class="fa fa-search"></i></button>
-        </li>
         <!--Notification Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i
                     class="fa fa-bell-o fa-lg"></i></a>
@@ -126,7 +121,7 @@
                 <li><a class="treeview-item" href="{{route('flights.list')}}"><i class="icon fa fa-circle-o"></i> Flight</a></li>
                 <li><a class="treeview-item" href="{{route('users.list')}}"><i class="icon fa fa-circle-o"></i> User</a></li>
                 <li><a class="treeview-item" href="{{route('role.index')}}"><i class="icon fa fa-circle-o"></i> Role</a></li>
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Seat</a></li>
+                <li><a class="treeview-item" href="{{route('seat.index')}}"><i class="icon fa fa-circle-o"></i> Seat</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Oder</a></li>
             </ul>
         </li>

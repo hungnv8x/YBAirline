@@ -13,9 +13,9 @@ class FlightController extends Controller
         $this->flightService = $flightService;
     }
 
-    public function getAll()
+    public function getPaginate()
     {
-        $flights = $this->flightService->getAll();
+        $flights = $this->flightService->getPaginate();
         return view('backend.flight.list', compact('flights'));
     }
 

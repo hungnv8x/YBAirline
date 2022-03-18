@@ -29,11 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label >Quantity Seat type 1</label>
-                        <input name="quantity_seat_type_1" type="number" class="form-control" aria-describedby="emailHelp" value="{{$flight->quantity_seat_type_1}}">
-                    </div>
-                    <div class="form-group">
-                        <label >Quantity Seat type 2</label>
-                        <input name="quantity_seat_type_2" type="number" class="form-control" aria-describedby="emailHelp" value="{{$flight->quantity_seat_type_2}}">
+                        <input name="quantity_seat" type="number" class="form-control" aria-describedby="emailHelp" value="{{$flight->quantity_seat}}">
                     </div>
                     <div class="row">
                         <div class="col-6">
