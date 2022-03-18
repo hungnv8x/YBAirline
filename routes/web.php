@@ -66,3 +66,5 @@ Route::middleware('checkAuth')->group(function (){
 
     });
 });
+
+Route::get('/home',[FlightController::class,'showHome'])->name('frontend.home');

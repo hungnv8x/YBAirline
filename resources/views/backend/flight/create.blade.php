@@ -35,9 +35,13 @@
                         <label >Quantity Seat type 2</label>
                         <input name="quantity_seat_type_2" type="number" class="form-control" aria-describedby="emailHelp" >
                     </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <div class="form-group mt-3">
-                        <p class="semibold-text mb-0"><a href="{{route('flights.list')}}" ><i class="fa fa-angle-left fa-fw"></i> Back</a></p>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                        <div class="col-6 form-group mt-3">
+                            <p style="text-align: right" class="semibold-text mb-0"><a href="{{route('flights.list')}}" ><i class="fa fa-angle-left fa-fw"></i> Back</a></p>
+                        </div>
                     </div>
                 </form>
             </div>

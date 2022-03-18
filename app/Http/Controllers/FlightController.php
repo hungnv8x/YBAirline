@@ -48,4 +48,10 @@ class FlightController extends Controller
         return redirect()->route('flights.list');
     }
 
+    public function showHome()
+    {
+        $flights = $this->flightService->getAll();
+        return view('frontend.home', compact('flights'));
+    }
+
 }

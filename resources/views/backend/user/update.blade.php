@@ -13,7 +13,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$user->email}}">
+                        <input readonly name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$user->email}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPhone">Phone</label>
@@ -27,9 +27,14 @@
                             @endforeach
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <div class="form-group mt-3">
-                        <p class="semibold-text mb-0"><a href="{{route('users.list')}}" ><i class="fa fa-angle-left fa-fw"></i> Back</a></p>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+
+                        <div class=" col-6 form-group mt-3">
+                            <p style="text-align: right;" class="semibold-text mb-0"><a href="{{route('users.list')}}" ><i class="fa fa-angle-left fa-fw"></i> Back</a></p>
+                        </div>
                     </div>
                 </form>
             </div>
