@@ -17,4 +17,9 @@ class SeatService
       return $this->seatRepository->getAll();
     }
 
+    public function create($request)
+    {
+        $this->seatRepository->create($request);
+    }
+
 }

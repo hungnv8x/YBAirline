@@ -34,6 +34,8 @@ Route::get('home', function (){
 
 Route::prefix('seats')->group(function (){
     Route::get('/', [SeatController::class, 'getAll'])->name('seat.index');
+    Route::get('create', [SeatController::class, 'showFormCreate'])->name('seat.showFormCreate');
+    Route::post('create', [SeatController::class, 'create'])->name('seat.create');
 });
 
 Route::prefix('roles')->group(function (){

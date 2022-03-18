@@ -19,4 +19,15 @@ class SeatController extends Controller
 
         return view('backend.seat.index', compact('seats'));
     }
+
+    public function showFormCreate()
+    {
+        return view('backend.seat.create');
+    }
+
+    public function create(Request $request)
+    {
+        $this->seatService->create($request);
+        return redirect()->route('seat.index');
+    }
 }

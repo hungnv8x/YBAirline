@@ -12,4 +12,11 @@ class SeatRepository extends BaseRepository
         return Seat::class;
     }
 
+    public function create($request)
+    {
+        $seat = $request->only('name', 'price');
+        $this->model::create($seat);
+    }
+
+
 }

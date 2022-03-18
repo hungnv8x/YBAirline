@@ -4,6 +4,7 @@
         <div class="col-md-6">
             <div class="tile">
                 <h3 class="tile-title">Seat list</h3>
+                <a href="{{route('seat.create')}}">Creat New Seat</a>
                 <table class="table">
                     <thead>
                     <tr>
