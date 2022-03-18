@@ -27,7 +27,7 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a  class="app-header__logo" href="{{route('dashboard')}}"><img width="210" height="150"  src="{{asset('images/logo.png')}}" alt=""></a>
+<header class="app-header"><a class="app-header__logo" href="{{route('dashboard')}}">YB Airline</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
                                     aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
@@ -101,7 +101,7 @@
         </li>
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                    class="fa fa-user fa-lg"></i> {{\Illuminate\Support\Facades\Auth::user()->name??"username"}}</a>
+                    class="fa fa-user fa-lg"></i> {{\Illuminate\Support\Facades\Auth::user()->name}}</a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
                 <li><a class="dropdown-item" href=""><i class="fa fa-cog fa-lg"></i> Settings</a></li>
                 <li><a class="dropdown-item" href=""><i class="fa fa-user fa-lg"></i> Profile</a></li>
@@ -125,7 +125,7 @@
             <ul class="treeview-menu">
                 <li><a class="treeview-item" href="{{route('flights.list')}}"><i class="icon fa fa-circle-o"></i> Flight</a></li>
                 <li><a class="treeview-item" href="{{route('users.list')}}"><i class="icon fa fa-circle-o"></i> User</a></li>
-                <li><a class="treeview-item" href="{{route('role.index')}}"><i class="icon fa fa-circle-o"></i> Role</a></li>
+                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Role</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Seat</a></li>
                 <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Oder</a></li>
             </ul>
@@ -184,9 +184,9 @@
 </aside>
 <main class="app-content">
     <div class="app-title">
-        <div>
-            <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
-        </div>
+{{--        <div>--}}
+{{--            <h1><i class="fa fa-dashboard"></i> Dashboard</h1>--}}
+{{--        </div>--}}
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
