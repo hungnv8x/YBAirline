@@ -11,6 +11,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Price</th>
+                        <th colspan="2">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -19,6 +20,7 @@
                             <td>{{$key + 1}}</td>
                             <td>{{$seat->name}}</td>
                             <td>{{$seat->price}}</td>
+                            <td><a href="{{route('seat.edit', $seat->id)}}">Update</a></td>
                         </tr>
                     @endforeach
                     </tbody>

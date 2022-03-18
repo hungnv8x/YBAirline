@@ -18,5 +18,11 @@ class SeatRepository extends BaseRepository
         $this->model::create($seat);
     }
 
-
+    public function update($request, $id)
+    {
+        $seat = $this->getById($id);
+        $seat->name = $request->name;
+        $seat->price = $request->price;
+        $seat->save();
+    }
 }

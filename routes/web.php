@@ -36,6 +36,9 @@ Route::prefix('seats')->group(function (){
     Route::get('/', [SeatController::class, 'getAll'])->name('seat.index');
     Route::get('create', [SeatController::class, 'showFormCreate'])->name('seat.showFormCreate');
     Route::post('create', [SeatController::class, 'create'])->name('seat.create');
+    Route::get('{id}/edit', [SeatController::class, 'edit'])->name('seat.edit');
+    Route::post('{id}/update', [SeatController::class, 'update'])->name('seat.update');
+
 });
 
 Route::prefix('roles')->group(function (){

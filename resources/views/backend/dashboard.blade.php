@@ -27,7 +27,7 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a  class="app-header__logo" href="{{route('dashboard')}}"><img width="120"  src="{{asset('images/logo.png')}}" alt=""></a>
+<header class="app-header"><a  class="app-header__logo" href="{{route('dashboard')}}"><img width="210" height="150"  src="{{asset('images/logo.png')}}" alt=""></a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
                                     aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->

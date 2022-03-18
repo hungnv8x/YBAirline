@@ -22,4 +22,13 @@ class SeatService
         $this->seatRepository->create($request);
     }
 
+    public function getById($id)
+    {
+       return $this->seatRepository->getById($id);
+    }
+    public function update($request, $id)
+    {
+        $this->seatRepository->update($request, $id);
+    }
+
 }
