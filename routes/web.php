@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\SeatController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,15 @@ Route::prefix('/admin')->group(function (){
 Route::get('auto', function (){
     return view('autoBanner');
 });
+
+Route::get('home', function (){
+    return view('home');
+});
+
+Route::prefix('seats')->group(function (){
+    Route::get('/', [SeatController::class, 'getAll'])->name('seat.index');
+});
+
 Route::prefix('roles')->group(function (){
     Route::get('/',[RoleController::class, 'getAll'])->name('role.index');
     Route::get('/{id}/delete',[RoleController::class, 'deleteById'])->name('role.delete');
@@ -35,6 +45,8 @@ Route::prefix('roles')->group(function (){
     Route::post('/{id}/update', [RoleController::class, 'update'])->name('role.update');
 
 });
+
+
 
 
 Route::get('/',[IndexController::class,'getAll'])->name('dashboard')->middleware('checkAuth');
