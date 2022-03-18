@@ -21,8 +21,7 @@ class FlightSeeder extends Seeder
         $flight->travel_time = '2:0:0';
         $flight->from = 'Hà Nội';
         $flight->to = 'Hồ Chí Minh';
-        $flight->quantity_seat_type_1 = 5;
-        $flight->quantity_seat_type_2 = 45;
+        $flight->quantity_seat = 50;
         $flight->save();
 
         $flight = new Flight();
@@ -31,8 +30,7 @@ class FlightSeeder extends Seeder
         $flight->travel_time = '1:30:0';
         $flight->from = 'Hà Nội';
         $flight->to = 'Đà Nẵng';
-        $flight->quantity_seat_type_1 = 5;
-        $flight->quantity_seat_type_2 = 45;
+        $flight->quantity_seat = 50;
         $flight->save();
 
         $flight = new Flight();
@@ -41,8 +39,7 @@ class FlightSeeder extends Seeder
         $flight->travel_time = '2:30:0';
         $flight->from = 'Hồ Chí Minh';
         $flight->to = 'Đà Nẵng';
-        $flight->quantity_seat_type_1 = 5;
-        $flight->quantity_seat_type_2 = 45;
+        $flight->quantity_seat = 50;
         $flight->save();
     }
 }

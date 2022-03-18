@@ -16,6 +16,11 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function getAll()
     {
+        return $this->model::all();
+    }
+
+    public function getPaginate()
+    {
         return $this->model::paginate(5);
     }
 

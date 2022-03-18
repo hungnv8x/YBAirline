@@ -14,6 +14,11 @@ class UserService
         $this->userRepository = $userRepository;
     }
 
+    public function getPaginate()
+    {
+       return $this->userRepository->getPaginate();
+    }
+
     public function getAll()
     {
       return  $this->userRepository->getAll();

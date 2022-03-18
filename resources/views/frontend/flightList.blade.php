@@ -1,12 +1,10 @@
-@extends('backend.dashboard')
-@section('title','Flight list')
+@extends('frontend.home')
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
                 <div class="tile-body">
                     <h3 style="text-align: center">Flight list</h3>
-                    <a class="btn btn-success mb-3" href="{{route('flights.showCreate')}}">Create Flight</a>
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
@@ -17,7 +15,6 @@
                                 <th>To</th>
                                 <th>Departure date</th>
                                 <th>Travel time</th>
-                                <th>Quantity seat</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -30,17 +27,14 @@
                                     <td>{{$flight->to}}</td>
                                     <td>{{$flight->departure_date}}</td>
                                     <td>{{$flight->travel_time}}</td>
-                                    <td>{{$flight->quantity_seat}}</td>
-                                    <td width="160">
-                                        <a type="button" class="btn btn-success" href="{{route('flights.edit',$flight->id)}}">Edit</a>
-                                        <a onclick="return confirm('Are you sure?')" type="button" class="btn btn-danger" href="{{route('flights.delete',$flight->id)}}">Delete</a>
+                                    <td >
+                                        <a  href="">Detail</a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
-                    {{$flights->links()}}
                 </div>
             </div>
         </div>

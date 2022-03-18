@@ -13,8 +13,7 @@
                     <th>To</th>
                     <th>Departure date</th>
                     <th>Travel time</th>
-                    <th>Quantity seat type 1</th>
-                    <th>Quantity seat type 2</th>
+                    <th>Quantity seat</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,8 +25,7 @@
                         <td>{{$flight->to}}</td>
                         <td>{{$flight->departure_date}}</td>
                         <td>{{$flight->travel_time}}</td>
-                        <td>{{$flight->quantity_seat_type_1}}</td>
-                        <td>{{$flight->quantity_seat_type_2}}</td>
+                        <td>{{$flight->quantity_seat}}</td>
                     </tr>
                 @endforeach
                 </tbody>

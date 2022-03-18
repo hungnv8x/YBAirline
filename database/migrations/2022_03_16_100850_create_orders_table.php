@@ -17,6 +17,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('flight_id');
             $table->unsignedBigInteger('user_id');
+            $table->integer('quantity');
+            $table->double('price');
             $table->foreign('flight_id')->references('id')->on('flights')->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();

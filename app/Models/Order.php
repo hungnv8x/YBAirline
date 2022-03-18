@@ -9,6 +9,13 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'flight_id',
+        'user_id',
+        'seat_id',
+        'quantity',
+        'price',
+    ];
     public function flight()
     {
         return $this->belongsTo(Flight::class);
@@ -17,10 +24,5 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function Order_details()
-    {
-        return $this->hasMany(Order_detail::class);
     }
 }

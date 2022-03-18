@@ -26,8 +26,7 @@ class FlightRepository extends BaseRepository
         $flight->travel_time = $request->travel_time;
         $flight->from = $request->from;
         $flight->to = $request->to;
-        $flight->quantity_seat_type_1 = $request->quantity_seat_type_1;
-        $flight->quantity_seat_type_2 = $request->quantity_seat_type_2;
+        $flight->quantity_seat= $request->quantity_seat;
         $flight->save();
     }
 }

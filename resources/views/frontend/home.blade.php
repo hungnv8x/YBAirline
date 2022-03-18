@@ -4,6 +4,7 @@
     <meta name="description"
           content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <!-- Twitter meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:site" content="@pratikborsadiya">
     <meta property="twitter:creator" content="@pratikborsadiya">
@@ -20,7 +21,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href={{asset("css/main.css")}}>
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -51,37 +52,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
-
         </ul>
     </div>
-    <div class="row">
-        @foreach($flights as $flight)
-            <div class="col-3 mr-2">
-                <div class="card" style="width: 18rem;">
-                    <img src={{asset("images/hn.jpeg")}} class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$flight->from.' - '.$flight->to}}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <p style="float: right" class="card-text">Price : 10000</p>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Detail</a>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
+    @yield('content')
 </div>
 
+
 <!-- Essential javascripts for application to work-->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src={{asset("js/jquery-3.3.1.min.js")}}></script>
+<script src={{asset("js/popper.min.js")}}></script>
+<script src={{asset("js/bootstrap.min.js")}}></script>
+<script src={{asset("js/main.js")}}></script>
 <!-- The javascript plugin to display page loading on top-->
-<script src="js/plugins/pace.min.js"></script>
+<script src={{asset("js/plugins/pace.min.js")}}></script>
 <!-- Page specific javascripts-->
 <script>
     $('.bs-component [data-toggle="popover"]').popover();
@@ -103,6 +86,27 @@
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-72504830-1', 'auto');
         ga('send', 'pageview');
+    }
+</script>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
 </script>
 </body>
