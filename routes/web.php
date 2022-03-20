@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\IndexController;
@@ -79,4 +80,11 @@ Route::middleware('checkAuth')->group(function () {
         Route::get('/order', [HomeController::class, 'orderCustomer'])->name('home.orderCustomer');
     });
 });
+Route::middleware('checkAuth')->group(function (){
+    Route::prefix('/revenue')->group(function (){
+        Route::get('/',[OrderController::class,'getOrderByFlight'])->name('revenue.list');
+        Route::get('/{id}/detail',[OrderController::class,'getOrderByFlightDetail'])->name('revenue.detail');
+    });
+});
+
 
