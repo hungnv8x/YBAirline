@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Flight;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class FlightRepository extends BaseRepository
@@ -13,13 +14,19 @@ class FlightRepository extends BaseRepository
         return $this->model = Flight::class;
     }
 
+    public function getAllNow()
+    {
+        return $this->model::where('departure_date','>',Carbon::now()->toDateTimeString())->get();
+    }
+
+
     public function create($request)
     {
         $flight = $request->except('_token');
         $this->model::create($flight);
     }
 
-    public function update($request)
+        public function update($request)
     {
         $flight = $this->getById($request->id);
         $flight->name = $request->name;
@@ -32,13 +39,18 @@ class FlightRepository extends BaseRepository
         $flight->save();
     }
 
-    public function search($request)
+    public function searchByFrom($from)
     {
-        $search = $request->input('search');
-        return Flight::query()
-            ->where('from', 'LIKE', "%$search%")
-            ->orWhere('to', 'LIKE', "%$search%")->get();
+        return $this->model::where('from',$from)->where('departure_date','>',Carbon::now()->toDateTimeString())->get();
+    }
 
+    public function searchByTo($to)
+    {
+        return $this->model::where('to',$to)->where('departure_date','>',Carbon::now()->toDateTimeString())->get();
+    }
 
+    public function searchByFromTo($from, $to)
+    {
+        return $this->model::where('from',$from)->where('to',$to)->where('departure_date','>',Carbon::now()->toDateTimeString())->get();
     }
 }
