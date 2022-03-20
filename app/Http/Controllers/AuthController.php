@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public $userService;
+
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
@@ -21,8 +22,10 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if ($this->userService->login($request)){
+        if ($this->userService->login($request) && Auth::user()->role_id == '1') {
             return redirect()->route('dashboard');
+        } else if ($this->userService->login($request) && Auth::user()->role_id == '2') {
+            return redirect()->route('home');
         }else{
             return redirect()->back();
         }

@@ -28,7 +28,7 @@
                                     <td>{{$flight->travel_time}}</td>
                                     <td style="color: red">{{$flight->seat->price }}</td>
                                     <td >
-                                        <a  href="">Detail</a>
+                                        <a  href="{{route('home.detail',$flight->id)}}">Detail</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -23,6 +23,11 @@ class FlightService
         return $this->flightRepository->getAll();
     }
 
+    public function getAllNow()
+    {
+        return $this->flightRepository->getAllNow();
+    }
+
     public function create($request)
     {
         $this->flightRepository->create($request);

@@ -29,7 +29,6 @@
 
                     </tbody>
                 </table>
-                {{$roles->links()}}
             </div>
         </div>
     </div>
