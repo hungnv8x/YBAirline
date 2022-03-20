@@ -16,7 +16,7 @@
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description"
           content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>YB Airline</title>
+    <title>@yield('title','YB Airline')</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
     <ul class="app-nav">
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                    class="fa fa-user fa-lg"></i> {{\Illuminate\Support\Facades\Auth::user()->name ?? "username"}}</a>
+                    class="fa fa-user fa-lg"></i>&nbsp;&nbsp;{{\Illuminate\Support\Facades\Auth::user()->name ?? "username"}}</a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
                 <li><a @if(\Illuminate\Support\Facades\Auth::user()) {{'hidden'}} @endif class="dropdown-item" href="{{route('login')}}"><i class="fa fa-sign-in fa-lg"></i> Login</a></li>
                 <li><a @if(!\Illuminate\Support\Facades\Auth::user()) {{'hidden'}} @endif class="dropdown-item" href="{{route('logout')}}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>

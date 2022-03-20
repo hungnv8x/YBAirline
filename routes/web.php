@@ -19,33 +19,30 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('auto', function () {
-    return view('autoBanner');
+Route::middleware('checkAuth')->group(function () {
+    Route::prefix('seats')->group(function () {
+        Route::get('/', [SeatController::class, 'getAll'])->name('seat.index');
+        Route::get('create', [SeatController::class, 'showFormCreate'])->name('seat.showFormCreate');
+        Route::post('create', [SeatController::class, 'create'])->name('seat.create');
+        Route::get('{id}/edit', [SeatController::class, 'edit'])->name('seat.edit');
+        Route::post('{id}/update', [SeatController::class, 'update'])->name('seat.update');
+        Route::get('{id}/delete', [SeatController::class, 'delete'])->name('seat.delete');
+    });
 });
 
-Route::prefix('seats')->group(function () {
-    Route::get('/', [SeatController::class, 'getAll'])->name('seat.index');
-    Route::get('create', [SeatController::class, 'showFormCreate'])->name('seat.showFormCreate');
-    Route::post('create', [SeatController::class, 'create'])->name('seat.create');
-    Route::get('{id}/edit', [SeatController::class, 'edit'])->name('seat.edit');
-    Route::post('{id}/update', [SeatController::class, 'update'])->name('seat.update');
-    Route::get('{id}/delete', [SeatController::class, 'delete'])->name('seat.delete');
-
-});
-
-Route::prefix('roles')->group(function () {
-    Route::get('/', [RoleController::class, 'getAll'])->name('role.index');
-    Route::get('/{id}/delete', [RoleController::class, 'deleteById'])->name('role.delete');
-    Route::get('create', [RoleController::class, 'showFormCreate'])->name('role.showFormCreate');
-    Route::post('create', [RoleController::class, 'create'])->name('role.create');
-    Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
-    Route::post('/{id}/update', [RoleController::class, 'update'])->name('role.update');
-
+Route::middleware('checkAuth')->group(function () {
+    Route::prefix('roles')->group(function () {
+        Route::get('/', [RoleController::class, 'getAll'])->name('role.index');
+        Route::get('/{id}/delete', [RoleController::class, 'deleteById'])->name('role.delete');
+        Route::get('create', [RoleController::class, 'showFormCreate'])->name('role.showFormCreate');
+        Route::post('create', [RoleController::class, 'create'])->name('role.create');
+        Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
+        Route::post('/{id}/update', [RoleController::class, 'update'])->name('role.update');
+    });
 });
 
 
-Route::get('/', [IndexController::class, 'getAll'])->name('dashboard')->middleware('checkAuth');
+Route::get('/admin', [IndexController::class, 'getAll'])->name('dashboard')->middleware('checkAuth');
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('showLogin');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -75,5 +72,9 @@ Route::middleware('checkAuth')->group(function () {
     });
 });
 Route::prefix('/home')->group(function () {
-    Route::get('/',[HomeController::class,'getAll'])->name('home');
+    Route::get('/', [HomeController::class, 'getAll'])->name('home');
+    Route::get('/{id}/detail',[HomeController::class,'detail'])->name('home.detail');
+    Route::post('/{id}/detail',[HomeController::class,'order'])->name('home.order');
 });
+
+

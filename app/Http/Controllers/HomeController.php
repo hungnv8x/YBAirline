@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Service\FlightService;
+use App\Service\SeatService;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -14,8 +16,19 @@ class HomeController extends Controller
 
     public function getAll()
     {
-      $flights =  $this->flightService->getAll();
+      $flights =  $this->flightService->getAllNow();
       return view('frontend.flightList',compact('flights'));
+    }
+
+    public function detail($id)
+    {
+        $flight =  $this->flightService->getById($id);
+        return view('frontend.detail',compact('flight'));
+    }
+
+    public function order( Request $request)
+    {
+
     }
 
 }

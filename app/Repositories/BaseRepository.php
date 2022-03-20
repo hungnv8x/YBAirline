@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Repositories\Impl\RepositoryInterface;
+use Carbon\Carbon;
 
 abstract class BaseRepository implements RepositoryInterface
 {
@@ -19,6 +20,11 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model::all();
     }
 
+    public function getAllNow()
+    {
+        return $this->model::where('departure_date','>',Carbon::now()->toDateTimeString())->get();
+    }
+
     public function getPaginate()
     {
         return $this->model::paginate(5);
@@ -33,4 +39,5 @@ abstract class BaseRepository implements RepositoryInterface
     {
         $this->model::destroy($id);
     }
+
 }
