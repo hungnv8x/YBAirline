@@ -27,6 +27,20 @@ class FlightService
     {
         return $this->flightRepository->getAllNow();
     }
+    public function searchByFrom($from)
+    {
+        return $this->flightRepository->searchByFrom($from);
+    }
+
+    public function searchByTo($to)
+    {
+        return $this->flightRepository->searchByTo($to);
+    }
+
+    public function searchByFromTo($from, $to)
+    {
+        return $this->flightRepository->searchByFromTo($from,$to);
+    }
 
     public function create($request)
     {
@@ -47,4 +61,5 @@ class FlightService
     {
         $this->flightRepository->deleteById($id);
     }
+
 }

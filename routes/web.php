@@ -71,10 +71,12 @@ Route::middleware('checkAuth')->group(function () {
 
     });
 });
-Route::prefix('/home')->group(function () {
-    Route::get('/', [HomeController::class, 'getAll'])->name('home');
-    Route::get('/{id}/detail',[HomeController::class,'detail'])->name('home.detail');
-    Route::post('/{id}/detail',[HomeController::class,'order'])->name('home.order');
+Route::get('/home', [HomeController::class, 'getAll'])->name('home');
+Route::middleware('checkAuth')->group(function () {
+    Route::prefix('/home')->group(function () {
+        Route::get('/{id}/detail', [HomeController::class, 'detail'])->name('home.detail');
+        Route::post('/{id}/detail', [HomeController::class, 'order'])->name('home.order');
+        Route::get('/order', [HomeController::class, 'orderCustomer'])->name('home.orderCustomer');
+    });
 });
-
 

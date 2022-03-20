@@ -5,7 +5,13 @@
             <div class="tile">
                 <div class="tile-body">
                     <h3 style="text-align: center">Flight list</h3>
-                    <div class="table-responsive">
+                    <form class="form-inline my-2 my-lg-0 " method="get">
+                        @csrf
+                        <input value="{{session()->get('from')}}" name="from" class="form-control mr-sm-2" type="search" placeholder="From" aria-label="Search">
+                        <input value="{{session()->get('to')}}" name="to" class="form-control mr-sm-2" type="search" placeholder="To" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <div class="table-responsive mt-2">
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                             <tr>
@@ -26,9 +32,9 @@
                                     <td>{{$flight->to}}</td>
                                     <td>{{$flight->departure_date}}</td>
                                     <td>{{$flight->travel_time}}</td>
-                                    <td style="color: red">{{$flight->seat->price }}</td>
+                                    <td style="color: red">{{number_format($flight->seat->price,0,'.','.')  }}</td>
                                     <td >
-                                        <a  href="{{route('home.detail',$flight->id)}}">Detail</a>
+                                        <a  href="{{route('home.detail',$flight->id)}}">Order</a>
                                     </td>
                                 </tr>
                             @endforeach

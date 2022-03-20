@@ -24,4 +24,10 @@ class OrderRepository extends BaseRepository
         $this->model::create($order);
         session()->remove('order');
     }
+
+    public function getOrderByUser()
+    {
+        $id = Auth::user()->id;
+        return $this->model::where('user_id',$id)->get();
+    }
 }

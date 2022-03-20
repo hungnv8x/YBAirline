@@ -12,34 +12,34 @@
                     <td>{{$flight->from}}</td>
                     <td><img src= {{asset("images/plane.png")}} ></td>
                     <td>{{$flight->to}} </td>
-                    <td>{{$flight->departure_date}} </td>
+                    <td >{{$flight->departure_date}} </td>
                     <td>Seat</td>
                     <td>x</td>
-                    <td><input name="quantity" style=" width: 50px" type="number" value="1"></td>
+                    <td><input id="quantity" name="quantity" style=" width: 50px" type="number" value="1"></td>
                     <td>=</td>
-                    <td>{{$flight->seat->price}}</td>
+                    <td >{{number_format($flight->seat->price,0,'.','.')}}</td>
                 </tr>
                 <tr>
                     <td><img width="50px" src={{asset("images/logo.png")}} alt=""></td>
                     <td>{{$flight->name}}</td>
                     <td></td>
                     <td>{{$flight->travel_time}}</td>
-                    <td>Tax + fee</td>
                     <td></td>
                     <td></td>
-                    <td>=</td>
-                    <td>{{$flight->seat->price * 0.1}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Sum</td>
                     <td></td>
                     <td></td>
-                    <td>=</td>
-                    <td style="color: red">{{$flight->seat->price + $flight->seat->price * 0.1}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
         </div>
@@ -90,4 +90,5 @@
             <li>Công ty vé máy bay online 2 thành viên, 1 tuần kinh nghiệm</li>
         </ul>
     </div>
+
 @endsection

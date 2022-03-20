@@ -19,9 +19,27 @@ class HomeController extends Controller
         $this->orderService = $orderService;
     }
 
-    public function getAll()
+    public function getAll(Request $request)
     {
-        $flights = $this->flightService->getAllNow();
+        if (isset($request->from)&&isset($request->to)){
+            $flights = $this->flightService->searchByFromTo($request->from,$request->to);
+            session()->put('from',$request->from);
+            session()->put('to',$request->to);
+        }elseif (isset($request->from)){
+            $flights = $this->flightService->searchByFrom($request->from);
+            session()->remove('from');
+            session()->remove('to');
+            session()->put('from',$request->from);
+        }elseif (isset($request->to)){
+            $flights = $this->flightService->searchByTo($request->to);
+            session()->remove('from');
+            session()->remove('to');
+            session()->put('to',$request->to);
+        }else{
+            $flights = $this->flightService->getAllNow();
+            session()->remove('from');
+            session()->remove('to');
+        }
         return view('frontend.flightList', compact('flights'));
     }
 
@@ -35,7 +53,12 @@ class HomeController extends Controller
     public function order(Request $request)
     {
         $this->orderService->create($request);
-        return redirect()->route('home');
+        return redirect()->route('home.orderCustomer');
     }
 
+    public function orderCustomer()
+    {
+        $orders = $this->orderService->getOrderByUser();
+        return view('frontend.order',compact('orders'));
+    }
 }

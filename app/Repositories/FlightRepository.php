@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Flight;
+use Carbon\Carbon;
 
 class FlightRepository extends BaseRepository
 {
@@ -11,6 +12,12 @@ class FlightRepository extends BaseRepository
     {
         return $this->model = Flight::class;
     }
+
+    public function getAllNow()
+    {
+        return $this->model::where('departure_date','>',Carbon::now()->toDateTimeString())->get();
+    }
+
 
     public function create($request)
     {
@@ -29,5 +36,20 @@ class FlightRepository extends BaseRepository
         $flight->quantity_seat= $request->quantity_seat;
         $flight->seat_id = $request->seat_id;
         $flight->save();
+    }
+
+    public function searchByFrom($from)
+    {
+        return $this->model::where('from',$from)->where('departure_date','>',Carbon::now()->toDateTimeString())->get();
+    }
+
+    public function searchByTo($to)
+    {
+        return $this->model::where('to',$to)->where('departure_date','>',Carbon::now()->toDateTimeString())->get();
+    }
+
+    public function searchByFromTo($from, $to)
+    {
+        return $this->model::where('from',$from)->where('to',$to)->where('departure_date','>',Carbon::now()->toDateTimeString())->get();
     }
 }

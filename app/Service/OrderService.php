@@ -18,8 +18,9 @@ class OrderService
         $this->orderRepository->create($request);
     }
 
-    public function getQuantitySeatByFlightId($id)
+    public function getOrderByUser()
     {
-        return $this->model::findOrFail($id)->quantity;
+        return $this->orderRepository->getOrderByUser();
     }
+
 }
