@@ -23,4 +23,13 @@ class OrderService
         return $this->orderRepository->getOrderByUser();
     }
 
+    public function getOrderByFlight()
+    {
+        return $this->orderRepository->getOrderByFlight();
+    }
+
+    public function getOrderByFlightById($id)
+    {
+        return $this->orderRepository->getOrderByFlightByid($id);
+    }
 }

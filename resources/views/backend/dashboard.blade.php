@@ -122,7 +122,7 @@
                 <li><a class="treeview-item" href="{{route('users.list')}}"><i class="icon fa fa-circle-o"></i> User</a></li>
                 <li><a class="treeview-item" href="{{route('role.index')}}"><i class="icon fa fa-circle-o"></i> Role</a></li>
                 <li><a class="treeview-item" href="{{route('seat.index')}}"><i class="icon fa fa-circle-o"></i> Seat</a></li>
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Sales</a></li>
+                <li><a class="treeview-item" href="{{route('revenue.list')}}"><i class="icon fa fa-circle-o"></i> Revenue</a></li>
             </ul>
         </li>
         <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
