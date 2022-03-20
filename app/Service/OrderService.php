@@ -2,9 +2,21 @@
 
 namespace App\Service;
 
+use App\Repositories\OrderRepository;
+
 class OrderService
 {
-    public $oderRepository;
+    public $orderRepository;
+
+    public function __construct(OrderRepository $orderRepository)
+    {
+        $this->orderRepository = $orderRepository;
+    }
+
+    public function create($request)
+    {
+        $this->orderRepository->create($request);
+    }
 
     public function getQuantitySeatByFlightId($id)
     {
