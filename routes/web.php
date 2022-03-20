@@ -30,6 +30,8 @@ Route::middleware('checkAuth')->group(function () {
     });
 });
 
+Route::middleware('checkAuth')->group(function (){
+
 Route::middleware('checkAuth')->group(function () {
     Route::prefix('roles')->group(function () {
         Route::get('/', [RoleController::class, 'getAll'])->name('role.index');
@@ -40,6 +42,8 @@ Route::middleware('checkAuth')->group(function () {
         Route::post('/{id}/update', [RoleController::class, 'update'])->name('role.update');
     });
 });
+
+
 
 
 Route::get('/admin', [IndexController::class, 'getAll'])->name('dashboard')->middleware('checkAuth');

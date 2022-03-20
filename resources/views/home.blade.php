@@ -24,17 +24,93 @@
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        center {
+            background-image: url("public/images/bg.png");
+            background-size: cover;
+        }
+        * {box-sizing: border-box;}
+        body {font-family: Verdana, sans-serif;}
+        .mySlides {display: none;}
+        img {vertical-align: middle;}
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .text {font-size: 11px}
+        }
+    </style>
+
 </head>
-<body class="app sidebar-mini">
+
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="{{route('dashboard')}}">YB Airline</a>
+<header class="app-header"><a class="app-header__logo" href="{{route('dashboard')}}"><img width="120" height="100" src="{{asset('images/logo.png')}}" alt=""></a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
                                     aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
         <li class="app-search">
-            <input class="app-search__input" type="search" placeholder="Search">
-            <button class="app-search__button"><i class="fa fa-search"></i></button>
+            <h3>Đi là tới, chơi là đến với YB Airline </h3>
         </li>
         <!--Notification Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i
@@ -101,7 +177,7 @@
         </li>
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                    class="fa fa-user fa-lg"></i> {{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                    class="fa fa-user fa-lg"></i> {{\Illuminate\Support\Facades\Auth::user()->name??''}}</a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
                 <li><a class="dropdown-item" href=""><i class="fa fa-cog fa-lg"></i> Settings</a></li>
                 <li><a class="dropdown-item" href=""><i class="fa fa-user fa-lg"></i> Profile</a></li>
@@ -110,88 +186,85 @@
         </li>
     </ul>
 </header>
-<!-- Sidebar menu-->
-<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-<aside class="app-sidebar">
-    <div class="app-sidebar__user">
 
+<div style="background-image: url('public/images/bg.png');
+background-size: cover">
+<div class="slideshow-container" >
+
+    <div class="mySlides fade">
+        <div class="numbertext">Đảo trên trời</div>
+        <img width="600"  height="500" src="{{asset('images/yb3.jpeg')}}" style="width:100%">
+        <div class="text"> Đảo trên trời</div>
     </div>
-    <ul class="app-menu">
-        <li><a class="app-menu__item active" href="{{route('dashboard')}}"><i
-                    class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Manage</span><i
-                    class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="{{route('flights.list')}}"><i class="icon fa fa-circle-o"></i> Flight</a></li>
-                <li><a class="treeview-item" href="{{route('users.list')}}"><i class="icon fa fa-circle-o"></i> User</a></li>
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Role</a></li>
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Seat</a></li>
-                <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Oder</a></li>
-            </ul>
-        </li>
-        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                    class="app-menu__label">Charts</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i
-                    class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Form
-                        Components</a></li>
-                <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom
-                        Components</a></li>
-                <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form
-                        Samples</a></li>
-                <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form
-                        Notifications</a></li>
-            </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Tables</span><i
-                    class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic
-                        Tables</a></li>
-                <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data
-                        Tables</a></li>
-            </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pages</span><i
-                    class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i> Blank Page</a>
-                </li>
-                <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i> Login Page</a>
-                </li>
-                <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i> Lockscreen
-                        Page</a></li>
-                <li><a class="treeview-item" href="page-user.html"><i class="icon fa fa-circle-o"></i> User Page</a>
-                </li>
-                <li><a class="treeview-item" href="page-invoice.html"><i class="icon fa fa-circle-o"></i> Invoice
-                        Page</a></li>
-                <li><a class="treeview-item" href="page-calendar.html"><i class="icon fa fa-circle-o"></i> Calendar Page</a>
-                </li>
-                <li><a class="treeview-item" href="page-mailbox.html"><i class="icon fa fa-circle-o"></i> Mailbox</a>
-                </li>
-                <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Error Page</a>
-                </li>
-            </ul>
-        </li>
-        <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span
-                    class="app-menu__label">Docs</span></a></li>
-    </ul>
-</aside>
-<main class="app-content">
-    <div class="app-title">
-{{--        <div>--}}
-{{--            <h1><i class="fa fa-dashboard"></i> Dashboard</h1>--}}
-{{--        </div>--}}
-        <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-        </ul>
+
+    <div class="mySlides fade">
+        <div class="numbertext">Cực quang</div>
+        <img width="600"  height="500" src="{{asset('images/yb4.jpeg')}}" style="width:100%">
+        <div class="text">Cực quang</div>
     </div>
+
+
+    <div class="mySlides fade">
+        <div class="numbertext">Trở về thời kỳ đồ đá</div>
+        <img width="600"  height="500" src="{{asset('images/yb7.jpeg')}}" style="width:100%">
+        <div class="text">Trở về thời kỳ đồ đá</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">Dạo quanh sa mạc</div>
+        <img width="600"  height="500" src="{{asset('images/yb.jpeg')}}" style="width:100%">
+        <div class="text">Dạo quanh sa mạc</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">Ngắm hoa tam giác mạch Hà Giang</div>
+        <img width="600"  height="500" src="{{asset('images/yb1.jpeg')}}" style="width:100%">
+        <div class="text">Ngắm hoa tam giác mạch Hà Giang</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">Khám phá đảo dưới nước</div>
+        <img width="600"  height="500" src="{{asset('images/yb2.jpeg')}}" style="width:100%">
+        <div class="text">Khám phá đảo dưới nước</div>
+    </div>
+
+
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+</div>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 3000); // Change image every 2 seconds
+    }
+</script>
+
     @yield('content')
 </main>
 <!-- Essential javascripts for application to work-->
