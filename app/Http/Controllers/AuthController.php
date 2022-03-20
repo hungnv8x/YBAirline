@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use App\Service\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,7 @@ class AuthController extends Controller
         return view('backend.auth.register');
     }
 
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
         $this->userService->create($request);
         return redirect()->route('login');
