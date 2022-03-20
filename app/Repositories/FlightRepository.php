@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Flight;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class FlightRepository extends BaseRepository
 {
@@ -33,7 +34,7 @@ class FlightRepository extends BaseRepository
         $flight->travel_time = $request->travel_time;
         $flight->from = $request->from;
         $flight->to = $request->to;
-        $flight->quantity_seat= $request->quantity_seat;
+        $flight->quantity_seat = $request->quantity_seat;
         $flight->seat_id = $request->seat_id;
         $flight->save();
     }

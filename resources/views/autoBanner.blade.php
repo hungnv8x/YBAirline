@@ -73,7 +73,7 @@
             .text {font-size: 11px}
         }
     </style>
-</head>
+</head>     　　                              　　
 <body>
 
 <div class="slideshow-container">
@@ -81,38 +81,38 @@
     <div class="mySlides fade">
         <div class="numbertext">Đảo trên trời</div>
         <img src="{{asset('images/yb3.jpeg')}}" style="width:100%">
-        <div class="text">Caption one</div>
+        <div class="text"> Đảo trên trời</div>
     </div>
 
     <div class="mySlides fade">
         <div class="numbertext">Cực quang</div>
         <img src="{{asset('images/yb4.jpeg')}}" style="width:100%">
-        <div class="text">Caption Three</div>
+        <div class="text">Cực quang</div>
     </div>
 
 
     <div class="mySlides fade">
         <div class="numbertext">Trở về thời kỳ đồ đá</div>
         <img  src="{{asset('images/yb7.jpeg')}}" style="width:100%">
-        <div class="text">Caption Two</div>
+        <div class="text">Trở về thời kỳ đồ đá</div>
     </div>
 
     <div class="mySlides fade">
         <div class="numbertext">Dạo quanh sa mạc</div>
         <img src="{{asset('images/yb.jpeg')}}" style="width:100%">
-        <div class="text">Caption four</div>
+        <div class="text">Dạo quanh sa mạc</div>
     </div>
 
     <div class="mySlides fade">
         <div class="numbertext">Ngắm hoa tam giác mạch Hà Giang</div>
         <img src="{{asset('images/yb1.jpeg')}}" style="width:100%">
-        <div class="text">Caption five</div>
+        <div class="text">Ngắm hoa tam giác mạch Hà Giang</div>
     </div>
 
     <div class="mySlides fade">
         <div class="numbertext">Khám phá đảo dưới nước</div>
         <img src="{{asset('images/yb2.jpeg')}}" style="width:100%">
-        <div class="text">Caption six</div>
+        <div class="text">Khám phá đảo dưới nước</div>
     </div>
 
 
@@ -120,6 +120,10 @@
 <br>
 
 <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
     <span class="dot"></span>
     <span class="dot"></span>
     <span class="dot"></span>
@@ -144,7 +148,7 @@
         }
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
+        setTimeout(showSlides, 4000); // Change image every 2 seconds
     }
 </script>
 
