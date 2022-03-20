@@ -13,9 +13,19 @@ class FlightService
         $this->flightRepository = $flightRepository;
     }
 
+    public function getPaginate()
+    {
+        return $this->flightRepository->getPaginate();
+    }
+
     public function getAll()
     {
         return $this->flightRepository->getAll();
+    }
+
+    public function getAllNow()
+    {
+        return $this->flightRepository->getAllNow();
     }
 
     public function create($request)

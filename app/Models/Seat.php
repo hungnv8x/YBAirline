@@ -9,13 +9,12 @@ class Seat extends Model
 {
     use HasFactory;
 
-    public function order_detail()
+    public function flight()
     {
-        return $this->belongsTo(Order_detail::class);
+        return $this->hasOne(Flight::class);
     }
     protected $fillable = [
         'name',
         'price',
-
     ];
 }

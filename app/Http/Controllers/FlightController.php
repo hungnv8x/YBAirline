@@ -3,19 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Service\FlightService;
+use App\Service\SeatService;
 use Illuminate\Http\Request;
 
 class FlightController extends Controller
 {
     public $flightService;
-    public function __construct(FlightService $flightService)
+    public $seatService;
+    public function __construct(FlightService $flightService, SeatService $seatService)
     {
         $this->flightService = $flightService;
+        $this->seatService = $seatService;
     }
 
-    public function getAll()
+    public function getPaginate()
     {
-        $flights = $this->flightService->getAll();
+        $flights = $this->flightService->getPaginate();
         return view('backend.flight.list', compact('flights'));
     }
 
@@ -27,12 +30,12 @@ class FlightController extends Controller
 
     public function showCreate()
     {
-        return view('backend.flight.create');
+        $seats = $this->seatService->getAll();
+        return view('backend.flight.create',compact('seats'));
     }
 
     public function create(Request $request)
     {
-
         $this->flightService->create($request);
         return redirect()->route('flights.list');
     }
@@ -40,12 +43,19 @@ class FlightController extends Controller
     public function edit($id)
     {
         $flight = $this->flightService->getById($id);
-        return view('backend.flight.update', compact('flight'));
+        $seats = $this->seatService->getAll();
+        return view('backend.flight.update', compact('flight','seats'));
     }
     public function update(Request $request)
     {
         $this->flightService->update($request);
         return redirect()->route('flights.list');
+    }
+
+    public function showHome()
+    {
+        $flights = $this->flightService->getAll();
+        return view('frontend.home', compact('flights'));
     }
 
 }

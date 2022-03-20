@@ -17,9 +17,9 @@ class UserController extends Controller
         $this->roleService = $roleService;
     }
 
-    public function getAll()
+    public function getPaginate()
     {
-        $users = $this->userService->getAll();
+        $users = $this->userService->getPaginate();
         return view('backend.user.list',compact('users'));
     }
 

@@ -16,12 +16,13 @@ class CreateFlightsTable extends Migration
         Schema::create('flights', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->dateTime('departure_date');
-            $table->time('travel_time');
             $table->string('from');
             $table->string('to');
-            $table->integer('quantity_seat_type_1');
-            $table->integer('quantity_seat_type_2');
+            $table->dateTime('departure_date');
+            $table->time('travel_time');
+            $table->unsignedBigInteger('seat_id');
+            $table->integer('quantity_seat');
+            $table->foreign('seat_id')->references('id')->on('seats')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -30,8 +30,8 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->phone}}</td>
                                 <td>{{$user->role->name}}</td>
-                                <td>
-                                    <a type="button" class="btn btn-success" href="{{route('users.edit',$user->id)}}">Edit</a>
+                                <td style="width: 180px">
+                                    <a  type="button" class="btn btn-success" href="{{route('users.edit',$user->id)}}">Edit</a>
                                     <a onclick="return confirm('Are you sure?')" type="button" class="btn btn-danger" href="{{route('users.delete',$user->id)}}">Delete</a>
                                 </td>
                             </tr>

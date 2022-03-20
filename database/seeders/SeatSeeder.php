@@ -16,13 +16,18 @@ class SeatSeeder extends Seeder
     public function run()
     {
         $seat = new Seat();
-        $seat->name = 'Thương gia';
+        $seat->name = 'HN-HCM';
         $seat->price = 1000000;
         $seat->save();
 
         $seat = new Seat();
-        $seat->name = 'Phổ thông';
+        $seat->name = 'HN-DN';
         $seat->price = 900000;
+        $seat->save();
+
+        $seat = new Seat();
+        $seat->name = 'HCM-DN';
+        $seat->price = 800000;
         $seat->save();
 
     }
