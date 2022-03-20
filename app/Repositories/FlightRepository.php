@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Flight;
+use Illuminate\Support\Facades\DB;
 
 class FlightRepository extends BaseRepository
 {
@@ -29,5 +30,10 @@ class FlightRepository extends BaseRepository
         $flight->quantity_seat_type_1 = $request->quantity_seat_type_1;
         $flight->quantity_seat_type_2 = $request->quantity_seat_type_2;
         $flight->save();
+    }
+    public function search($request)
+    {
+       $flights = DB::table('flights')->where('from', '%'.$request['from'].'%')->and()->where('to','%'.$request['to'].'%' )->get();
+       return $flights;
     }
 }
