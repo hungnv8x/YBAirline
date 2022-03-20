@@ -28,22 +28,27 @@
                     <div class="form-group">
                         <label class="control-label">FULL NAME</label>
                         <input name="name" class="form-control" type="text" placeholder="Full name" autofocus>
+                        <p>{{$errors->has('name')?$errors->first('name'):""}}</p>
                     </div>
                     <div class="form-group">
                         <label class="control-label">USERNAME</label>
                         <input name="email" class="form-control" type="email" placeholder="Email" autofocus>
+                        <p>{{$errors->has('email')?$errors->first('email'):""}}</p>
                     </div>
                     <div class="form-group">
                         <label class="control-label">PASSWORD</label>
                         <input name="password" class="form-control" type="password" placeholder="Password">
+                        <p>{{$errors->has('password')?$errors->first('password'):""}}</p>
                     </div>
                     <div class="form-group">
                         <label class="control-label">CONFIRM PASSWORD</label>
                         <input name="confirmPassword" class="form-control" type="password" placeholder="Confirm password">
+                        <p>{{$errors->has('confirmPassword')?$errors->first('confirmPassword'):""}}</p>
                     </div>
                     <div class="form-group">
                         <label class="control-label">PHONE</label>
                         <input name="phone" class="form-control" type="text" placeholder="Phone">
+                        <p>{{$errors->has('phone')?$errors->first('phone'):""}}</p>
                     </div>
                     <div class="form-group btn-container">
                         <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN UP

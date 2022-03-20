@@ -19,7 +19,7 @@ class FlightRepository extends BaseRepository
         $this->model::create($flight);
     }
 
-        public function update($request)
+    public function update($request)
     {
         $flight = $this->getById($request->id);
         $flight->name = $request->name;
@@ -27,13 +27,18 @@ class FlightRepository extends BaseRepository
         $flight->travel_time = $request->travel_time;
         $flight->from = $request->from;
         $flight->to = $request->to;
-        $flight->quantity_seat= $request->quantity_seat;
+        $flight->quantity_seat = $request->quantity_seat;
         $flight->seat_id = $request->seat_id;
         $flight->save();
     }
+
     public function search($request)
     {
-       $flights = DB::table('flights')->where('from', '%'.$request['from'].'%')->and()->where('to','%'.$request['to'].'%' )->get();
-       return $flights;
+        $search = $request->input('search');
+        return Flight::query()
+            ->where('from', 'LIKE', "%$search%")
+            ->orWhere('to', 'LIKE', "%$search%")->get();
+
+
     }
 }

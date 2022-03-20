@@ -30,55 +30,53 @@ Route::middleware('checkAuth')->group(function () {
     });
 });
 
-Route::middleware('checkAuth')->group(function (){
+//Route::middleware('checkAuth')->group(function () {
 
-Route::middleware('checkAuth')->group(function () {
-    Route::prefix('roles')->group(function () {
-        Route::get('/', [RoleController::class, 'getAll'])->name('role.index');
-        Route::get('/{id}/delete', [RoleController::class, 'deleteById'])->name('role.delete');
-        Route::get('create', [RoleController::class, 'showFormCreate'])->name('role.showFormCreate');
-        Route::post('create', [RoleController::class, 'create'])->name('role.create');
-        Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
-        Route::post('/{id}/update', [RoleController::class, 'update'])->name('role.update');
+    Route::middleware('checkAuth')->group(function () {
+        Route::prefix('roles')->group(function () {
+            Route::get('/', [RoleController::class, 'getAll'])->name('role.index');
+            Route::get('/{id}/delete', [RoleController::class, 'deleteById'])->name('role.delete');
+            Route::get('create', [RoleController::class, 'showFormCreate'])->name('role.showFormCreate');
+            Route::post('create', [RoleController::class, 'create'])->name('role.create');
+            Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
+            Route::post('/{id}/update', [RoleController::class, 'update'])->name('role.update');
+        });
     });
-});
 
 
+    Route::get('/admin', [IndexController::class, 'getAll'])->name('dashboard')->middleware('checkAuth');
 
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('showLogin');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('showRegister');
+    Route::post('/register', [AuthController::class, 'register'])->name('register');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/admin', [IndexController::class, 'getAll'])->name('dashboard')->middleware('checkAuth');
-
-Route::get('/login', [AuthController::class, 'showLogin'])->name('showLogin');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/register', [AuthController::class, 'showRegister'])->name('showRegister');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::middleware('checkAuth')->group(function () {
-    Route::prefix('users')->group(function () {
-        Route::get('/', [UserController::class, 'getPaginate'])->name('users.list');
-        Route::get('/{id}/delete', [UserController::class, 'deleteById'])->name('users.delete');
-        Route::get('/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-        Route::post('/{id}/edit', [UserController::class, 'update'])->name('users.update');
-        Route::get('/create', [UserController::class, 'showCreate'])->name('users.showCreate');
-        Route::post('/create', [UserController::class, 'create'])->name('users.create');
+    Route::middleware('checkAuth')->group(function () {
+        Route::prefix('users')->group(function () {
+            Route::get('/', [UserController::class, 'getPaginate'])->name('users.list');
+            Route::get('/{id}/delete', [UserController::class, 'deleteById'])->name('users.delete');
+            Route::get('/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+            Route::post('/{id}/edit', [UserController::class, 'update'])->name('users.update');
+            Route::get('/create', [UserController::class, 'showCreate'])->name('users.showCreate');
+            Route::post('/create', [UserController::class, 'create'])->name('users.create');
+        });
     });
-});
-Route::middleware('checkAuth')->group(function () {
-    Route::prefix('flights')->group(function () {
-        Route::get('/', [FlightController::class, 'getPaginate'])->name('flights.list');
-        Route::get('/create', [FlightController::class, 'showCreate'])->name('flights.showCreate');
-        Route::post('/create', [FlightController::class, 'create'])->name('flights.create');
-        Route::get('/{id}/delete', [FlightController::class, 'deleteById'])->name('flights.delete');
-        Route::get('/{id}/edit', [FlightController::class, 'edit'])->name('flights.edit');
-        Route::post('/{id}/edit', [FlightController::class, 'update'])->name('flights.update');
+    Route::middleware('checkAuth')->group(function () {
+        Route::prefix('flights')->group(function () {
+            Route::get('/', [FlightController::class, 'getPaginate'])->name('flights.list');
+            Route::get('/create', [FlightController::class, 'showCreate'])->name('flights.showCreate');
+            Route::post('/create', [FlightController::class, 'create'])->name('flights.create');
+            Route::get('/{id}/delete', [FlightController::class, 'deleteById'])->name('flights.delete');
+            Route::get('/{id}/edit', [FlightController::class, 'edit'])->name('flights.edit');
+            Route::post('/{id}/edit', [FlightController::class, 'update'])->name('flights.update');
 
+        });
     });
-});
-Route::prefix('/home')->group(function () {
-    Route::get('/', [HomeController::class, 'getAll'])->name('home');
-    Route::get('/{id}/detail',[HomeController::class,'detail'])->name('home.detail');
-    Route::post('/{id}/detail',[HomeController::class,'order'])->name('home.order');
-});
-
+    Route::prefix('/home')->group(function () {
+        Route::get('/', [HomeController::class, 'getAll'])->name('home');
+        Route::get('/{id}/detail', [HomeController::class, 'detail'])->name('home.detail');
+        Route::post('/{id}/detail', [HomeController::class, 'order'])->name('home.order');
+    });
+//});
 
